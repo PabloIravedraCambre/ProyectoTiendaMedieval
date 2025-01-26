@@ -1,0 +1,139 @@
+body {
+    background-image: url("../ImagenesTienda/fondoTiendaMedieval.png");
+    background-size: cover;
+  }
+  
+  section {
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: 50px 400px;
+    height: 847px;
+    width: 1800px;
+    row-gap: 19px;
+    column-gap: 140px;
+    grid-template-areas: 
+      "titulo1 titulo1 titulo1 titulo1"
+      "armadura1 armadura2 ropa1 ropa2";
+  }
+  
+  .contenedorNavegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+  }
+  
+  #imagenLogo {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+  
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  
+  #contenedorList {
+    display: flex;
+    justify-content: space-around;
+  
+    ul {
+      list-style: none;
+  
+      li {
+        display: inline-block;
+        padding: 0 20px;
+  
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  
+  a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: oblique;
+    font-size: 700;
+    color: black;
+    text-decoration: none;
+  
+    &:hover {
+      color: #ffbc0e;
+    }
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  img {
+    width: 60%;
+  }
+  
+  .imgArmaduras {
+    width: 82%;
+  }
+  
+  #armadura1, #armadura2, #ropa1, #ropa2 {
+    padding-top: 42px;
+    padding-left: 30px;
+    background-color: black;
+    box-shadow: 
+      inset -10px -10px 40px rgb(80, 83, 79), 
+      inset 0px -45px 0px rgb(134, 214, 217);
+  
+    &.armadura1 {
+      grid-area: armadura1;
+    }
+  
+    &.armadura2 {
+      grid-area: armadura2;
+    }
+  
+    &.ropa1 {
+      grid-area: ropa1;
+    }
+  
+    &.ropa2 {
+      grid-area: ropa2;
+    }
+  }
+  
+  #titulo1, #titulo2 {
+    background-image: url(ImagenesTienda/MarcoArmas3modifi.png);
+    text-align: center;
+    border-radius: 50px;
+    width: 340px;
+    height: 60px;
+    margin: auto;
+  
+    &#titulo1 {
+      grid-area: titulo1;
+    }
+  
+    &#titulo2 {
+      grid-area: titulo2;
+    }
+  }
+  
+  .precioBoton {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  figcaption {
+    color: black;
+    text-align: center;
+  }
+  
+  button {
+    background: none;
+    border: none;
+  }
+  

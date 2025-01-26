@@ -1,0 +1,75 @@
+$background-image: url("../ImagenesTienda/fondoTiendaMedieval.png");
+$hover-color:red;
+$font-family-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+body {
+  background-image: $background-image;
+  background-size: cover;
+}
+
+#imagenLogo {
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+#contenedorList {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding: 0 20px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    a {
+      font-family: $font-family-main;
+      font-style: oblique;
+      font-weight: 700;
+      color: black;
+      text-decoration: none;
+
+      &:hover {
+        color: $hover-color;
+      }
+    }
+  }
+}
+
+img {
+  width: 60%;
+}
+
+h1 {
+  color: white;
+  font-size: 30px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  margin-top: 90px;
+}
+
+.containerDosElementos {
+  margin: auto;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 270px;
+}
+
+input {
+  display: block;
+  margin: 15px;
+}

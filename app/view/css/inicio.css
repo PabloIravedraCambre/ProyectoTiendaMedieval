@@ -1,0 +1,151 @@
+body {
+  background-image: url("../ImagenesTienda/fondoTiendaMedieval.png");
+  background-size: cover;
+}
+
+#imagenLogo {
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#imagenLogo:hover {
+  transform: scale(1.2);
+}
+
+#contenedorList {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  padding: 0 20px;
+}
+li:hover {
+  transform: scale(1.1);
+}
+
+a {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: oblique;
+  font-size: 700;
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffbc0e;
+}
+
+img {
+  width: 60%;
+}
+
+h1 {
+  color: white;
+  background-color: #c59f7c;
+  border-radius: 60%;
+  font-size: 30px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+  margin-left: 550px;
+  width: 40%;
+}
+
+.mejores {
+  place-items: center;
+  background-image: url(ImagenesTienda/favoritoPergamino.png);
+  background-size: cover;
+  width: 60%;
+  margin: auto;
+}
+
+ul {
+  list-style-type: square;
+  margin-bottom: 30px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  margin-top: 15px;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #c59f7c;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  position: fixed;
+}
+
+#footer-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+}
+
+#team-info {
+  margin-top: 50px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-img {
+  height: 70px;
+  width: auto;
+  margin: 20px;
+}
+
+#titulo1 {
+  grid-area: titulo1;
+}
+
+#titulo2 {
+  grid-area: titulo2;
+}
+
+#lista1 {
+  grid-area: lista1;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+}
+
+#lista2 {
+  grid-area: lista2;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+}
+
+.ajustarImagen {
+  margin: auto;
+}
+
+#escaparate {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-template-rows: 50px 150px 280px;
+  grid-template-areas: "titulo1 titulo1 titulo2 titulo2" "lista1 lista1 lista2 lista2" "imagen1 imagen2 imagen3 imagen4";
+  background-color: rgb(237, 198, 136);
+  width: 60%;
+  margin-left: 350px;
+}
+
+.listar {
+  display: block;
+  margin-left: -32px;
+}
+
+/*# sourceMappingURL=inicio.css.map */

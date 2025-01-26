@@ -1,0 +1,137 @@
+body {
+  background-image: url("../ImagenesTienda/fondoTiendaMedieval.png");
+  background-size: cover;
+}
+
+section {
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  grid-template-columns: 550px;
+  grid-template-rows: 570px;
+  height: 847px;
+  width: 1800px;
+  grid-template-areas: "maza1";
+}
+
+#imagenLogo {
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#imagenLogo:hover {
+  transform: scale(1.2);
+}
+
+#contenedorList {
+  display: flex;
+  justify-content: space-around;
+}
+#contenedorList ul {
+  list-style: none;
+}
+#contenedorList ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+#contenedorList ul li:hover {
+  transform: scale(1.1);
+}
+
+a {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: oblique;
+  font-size: 700;
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffbc0e;
+}
+
+img {
+  width: 60%;
+}
+
+#contacto {
+  padding: 15px;
+  color: black;
+  background-color: #ffbc0e;
+  width: 50%;
+  margin: auto;
+  border-radius: 50%;
+}
+
+#contactanos {
+  background-color: black;
+  text-align: center;
+  margin-top: 110px;
+  width: 60%;
+  margin-left: 20%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 550px;
+  border-radius: 5%;
+  padding-top: 30px;
+}
+#contactanos .info {
+  color: white;
+  display: grid;
+  margin-top: 50px;
+  font-size: large;
+}
+
+span {
+  margin-bottom: 10px;
+  color: #ffbc0e;
+  font-size: large;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+}
+form ::placeholder {
+  text-align: center;
+}
+
+button {
+  display: grid;
+  background-color: #ffbc0e;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #c59f7c;
+  color: white;
+  display: flex;
+  font-size: 14px;
+}
+footer #footer-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+footer h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+footer #team-info {
+  margin-top: 50px;
+  display: flex;
+  gap: 15px;
+}
+footer .footer-img {
+  height: 70px;
+  width: auto;
+  margin: 20px;
+}
+
+/*# sourceMappingURL=contacto.css.map */

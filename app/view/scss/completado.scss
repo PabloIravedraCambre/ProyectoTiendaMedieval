@@ -1,0 +1,137 @@
+body {
+    background-image: url("../ImagenesTienda/fondoTiendaMedieval.png");
+    background-size: cover;
+  }
+  
+  #imagenLogo {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+  
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  
+  #contenedorList {
+    display: flex;
+    justify-content: space-around;
+  
+    ul {
+      list-style: none;
+  
+      li {
+        display: inline-block;
+        padding: 0 20px;
+  
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  
+  a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: oblique;
+    font-size: 700;
+    color: black;
+    text-decoration: none;
+  
+    &:hover {
+      color: #ffbc0e;
+    }
+  }
+  
+  img {
+    width: 60%;
+  }
+  
+  .caballero {
+    position: relative;
+    display: flex; /* Usamos flexbox */
+    justify-content: left;
+    margin-left: 450px;
+    margin-top: 100px;
+  
+    img {
+      max-width: 100%; /* Asegura que la imagen no desborde */
+      height: 600px; /* Mantiene la proporción */
+    }
+  }
+  
+  .exito {
+    position: absolute;
+    top: 30%;
+    right: 40%;
+    background-color: #c59f7c;
+    color: #000;
+    border-radius: 50%;
+    padding: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 10;
+  }
+  
+  .volver {
+    position: absolute;
+    top: 60%;
+    right: 35%;
+    background-color: #c59f7c;
+    color: #000;
+    padding: 30px 40px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+  
+    a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+  
+    &:hover {
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #c59f7c;
+    color: white;
+    display: flex;
+    font-size: 14px;
+  
+    #footer-info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  
+    #team-info {
+      margin-top: 50px;
+      display: flex;
+      gap: 15px;
+    }
+  
+    .footer-img {
+      height: 70px;
+      width: auto;
+      margin: 20px; /* margen para que no toquen el borde */
+    }
+  }
+  
