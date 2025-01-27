@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conexion = getDBConnection();
 
         // Paso 8: Verificamos que el producto existe en la base de datos
-        $verificarProducto = $conexion->prepare("SELECT COUNT(*) FROM producto WHERE ID_Producto = :productoId");
-        $verificarProducto->execute([':productoId' => $productoId]);
+        $verificarProducto = $conexion->prepare("SELECT COUNT(*) FROM producto WHERE ID_Producto = ?");
+        $verificarProducto->execute([$productoId]);
 
         if ($verificarProducto->fetchColumn() == 0) {
             echo "Error: El producto con ID $productoId no existe en la base de datos.";
@@ -34,23 +34,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Paso 9: Verificamos si el producto ya está en favoritos para el usuario actual
         $consultaVerificar = $conexion->prepare(
-            "SELECT * FROM favoritousuario WHERE ID_Usuario = :usuarioId AND ID_Producto = :productoId"
+            "SELECT * FROM favoritousuario WHERE ID_Usuario = ? AND ID_Producto = ?"
+
+            //El signo de interrogación es un placeholder (o marcador de posición) que nos indica que ahí se 
+            //insertará un valor más adelante. Vemos que ID_Usuario e ID_Producto tienen dos interrogaciones, por lo que
+            //se introducirá (en orden según la línea anterior) los valores de "$usuarioID" y a continuación los de $productoID.
+            //En resumidas cuentas, el signo de interrogación reemplazará ese signo por lo que haya después del "->execute"
         );
-        $consultaVerificar->execute([
-            ':usuarioId' => $usuarioId,
-            ':productoId' => $productoId,
-        ]);
+        $consultaVerificar->execute([$usuarioId, $productoId]);
 
         if ($consultaVerificar->rowCount() === 0) {
+            //Aquí se busca al ID_Usuario e ID_Producto del anterior paso, si no encuentra esa combinación realizada por el
+            //"rowCount", se insertará en favoritos
             // Paso 10: Si el producto no está en favoritos, lo agregamos
             $consultaInsertar = $conexion->prepare(
                 "INSERT INTO favoritousuario (ID_Usuario, ID_Producto) 
-                 VALUES (:usuarioId, :productoId)"
+                 VALUES (?, ?)"
             );
-            $consultaInsertar->execute([
-                ':usuarioId' => $usuarioId,
-                ':productoId' => $productoId,
-            ]);
+            $consultaInsertar->execute([$usuarioId, $productoId]);
 
             // Paso 11: Redirigimos a la página de favoritos tras insertar
             header('Location: FavoritosUsuario.php');

@@ -1,10 +1,11 @@
 <?php
 
-require_once "../../app/model/Usuario.php";
+require_once "../../app/model/usuario.php";
 
 class usuarioController{
 
     public function crearUsuario($nombreUsuario, $edadUsuario, $correoUsuario, $contraseniaUsuario){
+
 
         $nuevoUsuario = new Usuario();
 

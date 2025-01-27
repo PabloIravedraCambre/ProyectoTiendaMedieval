@@ -45,9 +45,9 @@
             "SELECT p.Nombre_Producto, p.Precio, p.Cantidad_Producto 
              FROM favoritousuario f
              INNER JOIN producto p ON f.ID_Producto = p.ID_Producto
-             WHERE f.ID_Usuario = :usuarioId"
+             WHERE f.ID_Usuario = ?"
         );
-        $consulta->execute([':usuarioId' => $usuarioId]);
+        $consulta->execute([$usuarioId]);
 
         $favoritos = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
