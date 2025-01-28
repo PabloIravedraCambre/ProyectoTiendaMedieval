@@ -3,8 +3,8 @@
 function getDBConnection(){
     $host = 'localhost';
     $db_name = "tienda_medieval";
-    $username = "pabloAdmin";
-    $password = "elbraisus";
+    $username = "brais";
+    $password = "consolaps4";
 
     try {
         $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);

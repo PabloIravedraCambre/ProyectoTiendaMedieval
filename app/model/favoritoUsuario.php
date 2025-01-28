@@ -1,5 +1,4 @@
 <?php
-require_once "../../config/dbConnection.php";
 
 class FavoritoUsuario {
     private $idFavorito;
