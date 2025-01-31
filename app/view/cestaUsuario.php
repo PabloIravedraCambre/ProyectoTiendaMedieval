@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/estilosCestaUsuario.css">
 </head>
 <body>
-         
         <div id="contenedorList">
             <a href="Inicio.html"><img id="imagenLogo"src="ImagenesTienda/LogoNav.png" alt="Logo tienda Medieval"></a>
            <ul>

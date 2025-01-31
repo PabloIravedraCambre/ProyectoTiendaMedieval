@@ -24,6 +24,14 @@
     <img src="ImagenesTienda/favoritoPergamino.png" alt="pergaminoFav" id="favoritoPergamino">
 
     <?php
+
+    /**
+     * FavoritosUsuario.php mostrará la lista de selección de productos favoritos que el usuario
+     * logueado en ese momento tiene
+     * 
+     * @package  TiendaMedieval
+     */
+
     // Paso 1: Importamos la conexión y verificamos sesión
     require_once "../../config/dbConnection.php";
     session_start();
@@ -35,10 +43,25 @@
 
     try {
         // Paso 2: Obtenemos el ID del usuario desde la sesión
-        $usuarioId = $_SESSION['usuario']; // Asegúrate de que este valor está disponible en la sesión
+        /**
+         * @var int $usuarioId es el ID del usuario logueado en la sesión actual
+         */
+
+        $usuarioId = $_SESSION['usuario']; 
+
 
         // Paso 3: Establecemos conexión con la base de datos
+        /**
+         * @var PDO $conexion esto es para hacer la conexión con la base de datos
+         */
         $conexion = getDBConnection();
+
+        /**
+         * Aquí es dónde se va a obtener, de la base de datos, la lista de los productos
+         * favoritos que seleccionó el usuario
+         * 
+         * @var PDOStatement $consulta
+         */
 
         // Paso 4: Consultamos los favoritos del usuario logueado
         $consulta = $conexion->prepare(
@@ -48,6 +71,11 @@
              WHERE f.ID_Usuario = ?"
         );
         $consulta->execute([$usuarioId]);
+
+        /**
+         * @var array $favoritos es un array asociativo que contiene los favoritos del usuario
+         * que esté logueado en ese momento, para luego mostrarlos en la página
+         */
 
         $favoritos = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
@@ -64,6 +92,12 @@
         } else {
             echo "<p>No tienes productos en favoritos.</p>";
         }
+         /**
+         * En caso de que haya algún tipo de error, se cargará un mensaje que alerta
+         * de ese posible error a la hora de cargar los favoritos
+         * 
+         * @var string $e Mensaje de error
+         */
     } catch (PDOException $e) {
         echo "<p>Error al cargar los favoritos: " . $e->getMessage() . "</p>";
     }

@@ -28,40 +28,90 @@
 
     <div class="formulario-php">
         <?php
+        /**
+         * LoginUsuario.php se encarga de trabajar con los formularios de login, el de registrar, y el de actualizar (éste último permite al usuario actualizar su nombre, edad, etc)
+         *
+         * @package TiendaMedieval
+         */
+
         require_once "../controller/usuarioController.php";
         session_start();
+
+        /**
+         * Controlador que permite trabajar con los datos que ha introducido el usuario
+         *
+         * @var usuarioController $UsuarioController
+         */
         $UsuarioController = new usuarioController();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Registrar'])) {
+            /**
+             *  Éste método maneja el registro de un nuevo usuario.
+             *
+             * htmlspecialchars => Sanea los datos de entrada y los envía al controlador.
+             *
+             * @param string $_POST['Nombre_Usuario'] Nombre del usuario.
+             * @param int $_POST['Edad_Usuario'] Edad del usuario.
+             * @param string $_POST['Correo_Usuario'] Correo del usuario.
+             * @param string $_POST['Contrasenia_Usuario'] Contraseña del usuario.
+             */
             $campoNombreSaneado = htmlspecialchars($_POST['Nombre_Usuario']);
             $campoEdadSaneado = htmlspecialchars($_POST['Edad_Usuario']);
             $campoCorreoUsuarioSaneado = htmlspecialchars($_POST['Correo_Usuario']);
             $campoContraseniaUsuarioSaneado = htmlspecialchars($_POST['Contrasenia_Usuario']);
             
+            // Llamada al controlador para crear el nuevo usuario
             $UsuarioController->crearUsuario($campoNombreSaneado, $campoEdadSaneado, $campoCorreoUsuarioSaneado, $campoContraseniaUsuarioSaneado);
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+            /**
+             * Éste método maneja el inicio de sesión del usuario.
+             *
+             * htmlspecialchars => Sanea los datos de entrada y los envía al controlador.
+             *
+             * @param string $_POST['Correo_Usuario'] Correo del usuario.
+             * @param string $_POST['Contrasenia_Usuario'] Contraseña del usuario.
+             */
             $campoCorreoUsuarioSaneado = htmlspecialchars($_POST['Correo_Usuario']);
             $campoContraseniaUsuarioSaneado = htmlspecialchars($_POST['Contrasenia_Usuario']);
             
+            // Llamada al controlador para iniciar sesión del usuario
             $UsuarioController->logearUsuario($campoCorreoUsuarioSaneado, $campoContraseniaUsuarioSaneado);
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])) {
+            /**
+             * Éste método maneja el cierre de sesión del usuario.
+             *
+             * Borra todos los datos de sesión, los elimina, y recarga la página.
+             * 
+             */
             session_unset();
             session_destroy();
-            header("Refresh:0");
+            header("Refresh:0"); // Recarga la página
             exit();
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
+            /**
+             * Éste método maneja la actualización de información del usuario.
+             *
+             * htmlspecialchars => Sanea los datos de entrada y los envía al controlador.
+             *
+             * @param int $_SESSION['usuario'] ID del usuario en sesión.
+             * @param string $_POST['Nombre_Usuario'] Nombre actualizado del usuario.
+             * @param int $_POST['Edad_Usuario'] Edad actualizada del usuario.
+             * @param string $_POST['Correo_Usuario'] Correo actualizado del usuario.
+             * @param string $_POST['Contrasenia_Usuario'] Contraseña actualizada del usuario.
+             */
             $idUsuario = htmlspecialchars($_SESSION['usuario']);
             $nombreUsuario = htmlspecialchars($_POST['Nombre_Usuario']);
             $edadUsuario = htmlspecialchars($_POST['Edad_Usuario']);
             $correoUsuario = htmlspecialchars($_POST['Correo_Usuario']);
             $contraseniaUsuario = htmlspecialchars($_POST['Contrasenia_Usuario']);
 
+            // Llamada al controlador para modificar los datos del usuario
             $UsuarioController->modificarUsuario($idUsuario, $nombreUsuario, $edadUsuario, $correoUsuario, $contraseniaUsuario);
         }
         ?>
