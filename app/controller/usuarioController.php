@@ -72,7 +72,7 @@ class usuarioController {
             $_SESSION['correo'] = $usuario['Correo_Usuario'];
             $_SESSION['contrasenia'] = $usuario['Contrasenia_Usuario'];
 
-            echo "Bienvenid@, " . $_SESSION['nombre'] . "<br>";
+            
         } else {
             echo "Correo electronico o contraseña incorrectos.";
         }

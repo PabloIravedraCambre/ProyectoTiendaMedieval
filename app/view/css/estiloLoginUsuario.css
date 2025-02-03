@@ -60,6 +60,39 @@ h1 {
   gap: 270px;
 }
 
+
+#posicionRegistro{
+  margin: auto;
+  width: 40%;
+  position: relative;
+  bottom: 320px;
+  left: 30px;
+}
+
+#posicionLogin{
+  margin: auto;
+  width: 40%;
+  position: relative;
+  left: 540px;
+  bottom: 590px;
+}
+
+#posicionLogout{
+  margin: auto;
+  width: 40%;
+  position: relative;
+  left: 600px;
+  bottom: 626px;
+}
+
+#posicionUpdate{
+  margin: auto;
+  width: 40%;
+  position: relative;
+  bottom: 570px;
+  left: 130px;
+}
+
 input {
   display: block;
   margin: 15px;

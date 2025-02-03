@@ -8,15 +8,23 @@
 </head>
 <body>
     <div id="contenedorList">
-        <a href="Inicio.html"><img id="imagenLogo" src="ImagenesTienda/LogoNav.png" alt="Logo tienda Medieval"></a>
+        <a href="Inicio.php"><img id="imagenLogo" src="ImagenesTienda/LogoNav.png" alt="Logo tienda Medieval"></a>
         <ul>
-            <li><a href="ArmasTienda.html">Armas de Larp</a></li>
-            <li><a href="ArmadurasTienda.html">Armaduras y ropa Medieval</a></li>
-            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="ArmasTienda.php">Armas de Larp</a></li>
+            <li><a href="ArmadurasTienda.php">Armaduras y ropa Medieval</a></li>
+            <li><a href="Contacto.php">Contacto</a></li>
             <li><a href="cestaUsuario.php"><img src="ImagenesTienda/carro.png" alt="carro"></a></li>
             <li><a href="FavoritosUsuario.php"><img src="ImagenesTienda/flecha 2.png" alt="favorito"></a></li>
             <li><a href="LoginUsuario.php"><img src="ImagenesTienda/personitaModificada 1.png" alt="loginUsuario"></a></li>
             <li><a href="#"><img src="ImagenesTienda/navidioma.png" alt="idioma"></a></li>
+            <?php
+
+                session_start();
+                 if (isset($_SESSION['nombre'])) {
+                    echo "<li>Bienvenid@, " . $_SESSION['nombre'] . "</li>";
+                 }
+                 
+            ?>
         </ul>  
     </div>
     
@@ -35,7 +43,6 @@
          */
 
         require_once "../controller/usuarioController.php";
-        session_start();
 
         /**
          * Controlador que permite trabajar con los datos que ha introducido el usuario
@@ -78,6 +85,7 @@
             
             // Llamada al controlador para iniciar sesión del usuario
             $UsuarioController->logearUsuario($campoCorreoUsuarioSaneado, $campoContraseniaUsuarioSaneado);
+            header("Location: LoginUsuario.php");
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])) {
@@ -117,6 +125,8 @@
         ?>
         
         <!-- Registro de Usuario -->
+
+        <div id="posicionRegistro">
         <form action="" method="POST">
             <label>Nombre Usuario:</label>
             <input type="text" name="Nombre_Usuario" required>
@@ -128,8 +138,10 @@
             <input type="password" name="Contrasenia_Usuario" required>
             <input type="submit" name="Registrar" value="REGISTRAR">
         </form>
+        </div>
 
         <!-- Login de Usuario -->
+        <div id="posicionLogin">
         <form action="" method="POST">
             <label>Correo:</label>
             <input type="email" name="Correo_Usuario" required>
@@ -137,15 +149,17 @@
             <input type="password" name="Contrasenia_Usuario" required>
             <input type="submit" name="login" value="LOG IN">
         </form>
+        </div>
 
         <!-- Logout y Actualización -->
         <?php
+        
         if (isset($_SESSION['nombre'])) {
             ?>
-            <form action="" method="POST">
+            <form action="" method="POST" id="posicionLogout">
                 <input type="submit" name="logout" value="Cerrar sesión">
             </form>
-            <form action="" method="POST">
+            <form action="" method="POST" id="posicionUpdate">
                 <input type="submit" name="update" value="Actualizar">
             </form>
             <?php
