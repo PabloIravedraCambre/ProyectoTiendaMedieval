@@ -13,8 +13,8 @@ function getDBConnection() {
     // Configuración de la base de datos
     $host = 'localhost';
     $db_name = "tienda_medieval";
-    $username = "pabloAdmin";
-    $password = "elbraisus";
+    $username = "brais";
+    $password = "consolaps4";
 
     try {
         // Intentamos establecer la conexión con PDO

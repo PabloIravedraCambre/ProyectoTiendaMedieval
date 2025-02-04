@@ -36,16 +36,16 @@
         <h2 id="titulo1">Armas Larp</h2>
         <h2 id="titulo2">Armaduras y ropa Medieval</h2>
         <ul id="lista1">
-            <a href="espada1.html"><li class="listar">Destello de Acero</li></a>
-            <a href="espada2.html"><li class="listar">Hoja de la Justicia</li></a>
-            <a href="maza1.html"><li class="listar">La aplastante</li></a>
-            <a href="maza2.html"><li class="listar">Rompecráneos</li></a>
+            <a href="espada1.php"><li class="listar">Destello de Acero</li></a>
+            <a href="espada2.php"><li class="listar">Hoja de la Justicia</li></a>
+            <a href="maza1.php"><li class="listar">La aplastante</li></a>
+            <a href="maza2.php"><li class="listar">Rompecráneos</li></a>
         </ul>
         <ul id="lista2">
-            <a href="armadura1.html"><li class="listar">Escudo del león</li></a>
-            <a href="armadura2.html"><li class="listar">Coraza de viento</li></a>
-            <a href="ropa1.html"><li class="listar">Capa del gran duque</li></a>
-            <a href="ropa2.html"><li class="listar">Abrigo de zafiro real</li></a>
+            <a href="armadura1.php"><li class="listar">Escudo del león</li></a>
+            <a href="armadura2.php"><li class="listar">Coraza de viento</li></a>
+            <a href="ropa1.php"><li class="listar">Capa del gran duque</li></a>
+            <a href="ropa2.php"><li class="listar">Abrigo de zafiro real</li></a>
         </ul>
         <img src="ImagenesTienda/Espada1.png" alt="destello de acero" class="ajustarImagen">
         <img src="ImagenesTienda/Maza1a500.png" alt="aplastante" class="ajustarImagen">
