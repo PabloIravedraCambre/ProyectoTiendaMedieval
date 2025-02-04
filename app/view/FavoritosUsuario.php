@@ -42,7 +42,6 @@
 
     // Paso 1: Importamos la conexión y verificamos sesión
     require_once "../../config/dbConnection.php";
-    session_start();
 
     if (!isset($_SESSION['usuario'])) {
         echo "<p>Error: Debes iniciar sesión para ver tus favoritos.</p>";

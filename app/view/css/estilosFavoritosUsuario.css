@@ -58,4 +58,9 @@ h2 {
   width: 45%;
 }
 
-/*# sourceMappingURL=estilosFavoritosUsuario.css.map */
+.favorito-item{
+  margin: auto;
+  width: 20%;
+  position: relative;
+  bottom: 500px;
+}
