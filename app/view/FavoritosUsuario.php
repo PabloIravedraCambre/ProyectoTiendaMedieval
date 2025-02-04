@@ -44,7 +44,9 @@
     require_once "../../config/dbConnection.php";
 
     if (!isset($_SESSION['usuario'])) {
+        echo "<div class='favorito-item'>";
         echo "<p>Error: Debes iniciar sesión para ver tus favoritos.</p>";
+        echo "</div>";
         exit;
     }
 
@@ -97,7 +99,9 @@
                 echo "</div>";
             }
         } else {
+            echo "<div class='favorito-item'>";
             echo "<p>No tienes productos en favoritos.</p>";
+            echo "</div>";
         }
          /**
          * En caso de que haya algún tipo de error, se cargará un mensaje que alerta
